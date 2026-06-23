@@ -39,4 +39,15 @@ public class ProgressService {
         }
     }
 
+    public String getPlacementStatus(StudentProgress progress) {
+        double score = calculateReadinessScore(progress);
+        if (score >= 80) {
+            return "Ready for placement";
+        } else if (score >= 60) {
+            return "Almost ready for placement";
+        } else {
+            return "Needs improvement";
+        }
+    }
+
 }

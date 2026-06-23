@@ -7,9 +7,11 @@ public class Main {
         ProgressService service = new ProgressService();
         double readinessScore = service.calculateReadinessScore(progress);
         String weakArea = service.findWeakArea(progress);
+        String recommendation = service.getRecommendation(progress);
         System.out.println(progress);
         System.out.println("\nPlacement Readiness Score: "
                 + readinessScore + "%");
         System.out.println("Weak Area: " + weakArea);
+        System.out.println("Recommendation: " + recommendation);
     }
 }

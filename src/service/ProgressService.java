@@ -26,4 +26,17 @@ public class ProgressService {
         return weakArea;
     }
 
+    public String getRecommendation(StudentProgress progress) {
+        String weakArea = findWeakArea(progress);
+        if (weakArea.equals("DSA")) {
+            return "Focus on improving your DSA skills. Consider revisiting fundamental concepts and practicing more problems.";
+        } else if (weakArea.equals("Java")) {
+            return "Focus on improving your Java skills. Review core Java concepts and work on coding exercises.";
+        } else if (weakArea.equals("Aptitude")) {
+            return "Focus on improving your Aptitude skills. Practice quantitative, logical reasoning, and verbal ability questions.";
+        } else {
+            return "Focus on improving your Project skills. Work on enhancing your project quality and presentation.";
+        }
+    }
+
 }

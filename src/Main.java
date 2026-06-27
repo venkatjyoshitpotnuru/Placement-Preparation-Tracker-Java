@@ -4,51 +4,53 @@ import java.util.Scanner;
 
 public class Main {
 
-    public static void main(String[] args) {
+        public static void main(String[] args) {
 
-        Scanner sc = new Scanner(System.in);
+                Scanner sc = new Scanner(System.in);
 
-        ProgressService service = new ProgressService();
+                ProgressService service = new ProgressService();
 
-        System.out.print("Enter DSA Score: ");
-        int dsa = sc.nextInt();
+                System.out.print("Enter DSA Score: ");
+                int dsa = sc.nextInt();
 
-        System.out.print("Enter Java Score: ");
-        int javaScore = sc.nextInt();
+                System.out.print("Enter Java Score: ");
+                int javaScore = sc.nextInt();
 
-        System.out.print("Enter Aptitude Score: ");
-        int aptitude = sc.nextInt();
+                System.out.print("Enter Aptitude Score: ");
+                int aptitude = sc.nextInt();
 
-        System.out.print("Enter Project Score: ");
-        int project = sc.nextInt();
+                System.out.print("Enter Project Score: ");
+                int project = sc.nextInt();
 
-        StudentProgress progress = new StudentProgress(
-                dsa,
-                javaScore,
-                aptitude,
-                project);
+                StudentProgress progress = new StudentProgress(
+                                dsa,
+                                javaScore,
+                                aptitude,
+                                project);
 
-        double readinessScore = service.calculateReadinessScore(progress);
+                double readinessScore = service.calculateReadinessScore(progress);
 
-        String weakArea = service.findWeakArea(progress);
+                String weakArea = service.findWeakArea(progress);
 
-        String recommendation = service.getRecommendation(progress);
+                String recommendation = service.getRecommendation(progress);
 
-        String placementStatus = service.getPlacementStatus(progress);
+                String placementStatus = service.getPlacementStatus(progress);
 
-        System.out.println("\n" + progress);
+                System.out.println("\n" + progress);
 
-        System.out.println("\nPlacement Readiness Score: "
-                + readinessScore + "%");
+                System.out.println("\nPlacement Readiness Score: "
+                                + readinessScore + "%");
 
-        System.out.println("Weak Area: " + weakArea);
+                System.out.println("Weak Area: " + weakArea);
 
-        System.out.println("Recommendation: "
-                + recommendation);
+                System.out.println("Recommendation: "
+                                + recommendation);
 
-        System.out.println("Placement Status: "
-                + placementStatus);
+                System.out.println("Placement Status: "
+                                + placementStatus);
 
-        sc.close();
-    }
+                service.checkEligibleCompanies(progress);
+
+                sc.close();
+        }
 }

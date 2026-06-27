@@ -82,6 +82,20 @@ public class ProgressService {
         }
     }
 
+    public void checkEligibleCompanies(StudentProgress progress) {
+
+        double score = calculateReadinessScore(progress);
+
+        System.out.println("\nEligible Companies:");
+
+        for (Company company : companies) {
+
+            if (score >= company.getMinimumScore()) {
+                System.out.println("✔ " + company.getCompanyName());
+            }
+        }
+    }
+
     // Placement Status
     public String getPlacementStatus(StudentProgress progress) {
 
